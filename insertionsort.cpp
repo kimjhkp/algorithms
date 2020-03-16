@@ -16,6 +16,8 @@ void insertion(int a[], int size){
     }
 };
 
+// O(n^2) since there are 'for' and 'while' loops (triggered in avg/worst-case scenarios)
+
 int main(){
     int b[5] = {10, 4, 15, 6, 8};
 

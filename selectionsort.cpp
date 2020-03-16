@@ -16,6 +16,8 @@ void selectionsort(int a[], int size){
     }
 };
 
+// n - 1 comparisons. O(n^2) since there are two 'for' loops
+
 int main (){
     int b[] = {3,67,32,1,2}; // {1,67,32,3,2}
 
