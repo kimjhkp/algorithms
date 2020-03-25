@@ -17,13 +17,13 @@ class Link {
 
 		Link* next() const { return succ; } // gods = p2->next();
 		Link* previous() const { return prev; }
-	//private:
+	private:
 		Link* prev; 
 		Link* succ; 
 };
 
-Link* Link::insert(Link* n) // insert before 'p'
-{
+// insert before 'p'
+Link* Link::insert(Link* n){
 	if (n == nullptr) return this; // 'p' is 'this'
 	if (this == nullptr) return n;
 	n->succ = this;
@@ -33,8 +33,8 @@ Link* Link::insert(Link* n) // insert before 'p'
 	return n; // n is being inserted between 'p' and p's prdecessor
 };
 
-Link* Link::add(Link* n) // insert after 'p'
-{
+// insert after 'p'
+Link* Link::add(Link* n) {
 	if (n == nullptr) return this;
 	if (this == nullptr) return n; 
 	n->prev = this;
@@ -44,8 +44,8 @@ Link* Link::add(Link* n) // insert after 'p'
 	return n;
 };
 
-Link* Link::erase() // delete 
-{
+// delete
+Link* Link::erase() {
 	Link* tmp = this;
 	if (tmp == nullptr) return nullptr;
 	if (tmp->succ) tmp->succ->prev = tmp->prev;
@@ -54,8 +54,8 @@ Link* Link::erase() // delete
 	return succ;
 };
 
-Link* Link::find(const std::string& s) // find a value
-{
+// find a value
+Link* Link::find(const std::string& s) {
 	Link* p = this;
 	while (p) {
 		if (p->value == s) return p;
@@ -65,8 +65,7 @@ Link* Link::find(const std::string& s) // find a value
 };
 
 
-int main() 
-{
+int main() {
 	Link* norse_gods = new Link{ "Thor",nullptr,nullptr }; // New 'Link' objects
 	norse_gods = new Link{ "Odin",nullptr, norse_gods }; // Adding another pointer which the successor is the previous pointer
 

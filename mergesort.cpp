@@ -1,6 +1,6 @@
 #include<iostream>
 
-void merge(int a[], int p, int q, int r){
+void merge(int a[], int p, int q, int r) {
     int n1 = q - p + 1;
     int n2 = r - q;
 
@@ -8,13 +8,10 @@ void merge(int a[], int p, int q, int r){
     int tmp1[n1];
     int tmp2[n2];
 
-    for (int i=0; i < n1; ++i)
-    {
+    for (int i=0; i < n1; ++i) {
         tmp1[i] = a[p + i];
     };
-
-    for (int ii=0; ii < n2; ++ii)
-    {
+    for (int ii=0; ii < n2; ++ii) {
         tmp2[ii] = a[q + ii + 1];
     };
 
@@ -22,42 +19,36 @@ void merge(int a[], int p, int q, int r){
     int j = 0; 
     int k = p; 
 
-    while (i < n1 && j < n2) 
-    { 
-        if (tmp1[i] <= tmp2[j]) 
-        { 
+    while (i < n1 && j < n2) { 
+        if (tmp1[i] <= tmp2[j]) { 
             a[k] = tmp1[i]; 
             i++; 
         } 
-        else
-        { 
+        else { 
             a[k] = tmp2[j]; 
             j++; 
         } 
         k++; 
-    } 
+    };
 
     // there can be left-overs, e.g. if left array index reaches maximum, this loop finishes leaving behind an element
     // in the right array without being copied
-    while (i < n1) 
-    { 
+    while (i < n1) { 
         a[k] = tmp1[i]; 
         i++; 
         k++; 
-    } 
+    }; 
 
-    while (j < n2) 
-    { 
+    while (j < n2) { 
         a[k] = tmp2[j]; 
         j++; 
         k++; 
-    } 
+    }; 
 };
 
-void mergesort(int a[], int p, int r){
+void mergesort(int a[], int p, int r) {
 
-    if(p < r)
-    {
+    if(p < r) {
         int q = p + (r - p) / 2;
 
         mergesort(a, p, q);
@@ -68,13 +59,12 @@ void mergesort(int a[], int p, int r){
 
 // n log(n) complexity
 // merging step takes 'n' and there are log2(n) leaves 
-int main(){
-    int arr[] = {1,8,3,12,5,4};
+int main() {
+    int ary[] = {1,8,3,12,5,4};
 
-    mergesort(arr, 0, 5);
+    mergesort(ary, 0, 5);
 
-    for (int i=0; i < 6; ++i)
-    {
-        std::cout << arr[i] << " " << ",";
+    for (int i=0; i < 6; ++i) {
+        std::cout << ary[i] << " " << ",";
     };
 };
